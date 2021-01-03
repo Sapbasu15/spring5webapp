@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 public class Book {
@@ -92,5 +93,11 @@ public class Book {
                 ", title='" + title + '\'' +
                 ", isbn='" + isbn + '\'' +
                 '}';
+    }
+
+    public String getAuthorSummary(){
+        return this.getAuthors().stream()
+                .map(author -> String.format("%s %s",author.getFirstName(), author.getLastName()) )
+                .collect(Collectors.joining(", "));
     }
 }

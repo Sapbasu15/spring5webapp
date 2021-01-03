@@ -21,7 +21,7 @@
         <td th:text="${book.id}">1</td>
         <td th:text="${book.title}">2</td>
         <td th:text="${book.isbn}">3</td>
-        <td th:text="${book.authors}">4</td>
+        <td th:text="${book.getAuthorSummary()}">4</td>
         <td th:text="${book.publisher.name}">5</td>
     </tr>
 </table>
